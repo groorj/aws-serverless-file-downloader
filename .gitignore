@@ -1,0 +1,5 @@
+*.ignore
+source.sh
+tmp/*
+.aws-sam/
+samconfig.toml

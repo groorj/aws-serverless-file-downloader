@@ -1,0 +1,37 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  <your application name here>
+
+Globals:
+  Function:
+    Timeout: 600
+
+Resources:
+  Executor:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: app.execute_handler
+      Runtime: python3.9
+      CodeUri: ./
+      Policies:
+      - Statement:
+        - Sid: S3UploadObjectToBucket
+          Effect: Allow
+          Action:
+          - s3:PutObject
+          - s3:PutObjectAcl
+          - s3:PutObjectTask
+          - s3:PutLifecycleConfiguration
+          Resource: '*'
+      Environment:
+        Variables:
+          LOGGER_LEVEL: "INFO" # CRITICAL, ERROR, WARNING, INFO, DEBUG, NOTSET
+          TEMP_DIR: "/tmp/temp"
+          BUCKET_NAME: "<your bucket name here>"
+          FILES_TO_DOWNLOAD: '{"https://<url>/file1.txt", "https://<url>/file2.txt"}'
+      Events:
+        InvocationLevel:
+          Type: Schedule
+          Properties:
+            Schedule: cron(45 19 * * ? *) # runs everyday at 7:45pm GMT/UTC

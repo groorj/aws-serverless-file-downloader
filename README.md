@@ -1,9 +1,9 @@
 # aws-services-list
 
 ## Table of Contents
-- [What does it do ?](https://github.com/groorj/registrobr-listaliberacao#what-does-it-do)
-- [This project uses](https://github.com/groorj/registrobr-listaliberacao#this-project-uses)
-- [Notes](https://github.com/groorj/registrobr-listaliberacao#notes)
+- [What does it do ?](https://github.com/groorj/aws-serverless-file-downloader#what-does-it-do)
+- [This project uses](https://github.com/groorj/aws-serverless-file-downloader#this-project-uses)
+- [Notes](https://github.com/groorj/aws-serverless-file-downloader#notes)
 
 ## What does it do
 
